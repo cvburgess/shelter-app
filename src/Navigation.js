@@ -18,7 +18,7 @@ const useStyles = makeStyles({
   }
 });
 
-const Navigation = ({ reloadTasks }) => {
+const Navigation = ({ reloadShelters }) => {
   const classes = useStyles();
 
   return (
@@ -28,14 +28,14 @@ const Navigation = ({ reloadTasks }) => {
           edge="start"
           className={classes.menuButton}
           color="inherit"
-          onClick={() => reloadTasks()}
+          onClick={() => reloadShelters()}
         >
           <RefreshIcon />
         </IconButton>
         <Typography variant="h6" className={classes.title}>
-          DO-A-BULL
+          COOLING AND HOMELESS SHELTER APP
         </Typography>
-        <Button color="inherit">Login</Button>
+        
       </Toolbar>
     </AppBar>
   );
