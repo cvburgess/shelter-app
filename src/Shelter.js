@@ -25,8 +25,7 @@ const Shelter = ({ name, phone, address }) => {
     <Grid item xs={12}>
       <Paper className={classes.container}>
         <div className={classes.flex}>
-          <Checkbox onChange={() => {}} className={classes.checkbox} />
-
+          
           <div>
             <Typography variant="h6">{name}</Typography>
             <Typography>{address}</Typography>
