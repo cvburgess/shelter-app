@@ -1,19 +1,15 @@
 import React from "react";
 import useAxios from "axios-hooks";
+import { usePosition } from "use-position"; // https://github.com/trekhleb/use-position
 import { Grid } from "@material-ui/core";
 
 import Navigation from "./Navigation";
 import Shelter from "./Shelter";
 
 const App = () => {
-  const [{ data }, refetch] = useAxios("/.netlify/functions/getShelters");
-  // const shelters = (data && data.shelter) || [];
-  const shelters = [{
-    'id': 4,
-    'name': 'Arthenia L. Joyner University Area Community Library',
-    'address': '3619 N. 22nd St. Tampa, FL 33613-5872',
-    "phone": '  PHONE: 813-273-3652'
-  }]
+  const { latitude, longitude } = usePosition();
+  const [{ data }, refetch] = useAxios(`/.netlify/functions/getShelters?lat=${latitude}&lon=${longitude}`);
+  const shelters = (data && data.shelters) || [];
 
   return (
     <div>
